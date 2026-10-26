@@ -1,0 +1,12 @@
+Sesiones probadas para la app:
+
+1-
+    nombre: Matias
+    apellido: Ramos
+    email: papas@gmail.com
+    password: matis1234
+2-
+    nombre: Masahiro
+    apellido: Sakurai
+    email: kirbygoat@nintendomail.com
+    password: thisismyvision12

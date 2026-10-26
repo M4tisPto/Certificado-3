@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/nuevo_viaje.css">
+    <title>Nuevo Viaje</title>
+</head>
+<body>
+    <header>
+        <h1>Nueva Mision</h1>
+        <div>
+            <a href="/dashboard">Inicio</a>
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+    </header>
+    <main>
+        {% for m in get_flashed_messages(category_filter=["mission"]) %}
+        <p class="error">{{ m }}</p>
+        {% endfor %}
+
+        <form action="/agregar_mision" method="post">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" required><br>
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" required><br>
+            <label for="voluntarios_necesarios">Voluntarios Necesarios</label>
+            <input type="number" name="voluntarios_necesarios" id="" required><br>
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion" required></textarea>
+            <input type="submit" value="Guardar">
+        </form>
+    </main>
+</body>
+</html>
