@@ -40,6 +40,7 @@ def ver_mision(id):
         "id": id
     }
     mision = Mision.get_by_id(data)
+    
     voluntarios = Voluntario.obtener_todos()
     return render_template("ver_mision.html", mision = mision, voluntarios = voluntarios)
 

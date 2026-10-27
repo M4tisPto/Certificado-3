@@ -48,7 +48,6 @@ class Usuario:
     def get_one(cls,datos):
         query = "SELECT * FROM usuarios WHERE id = %(id)s;"
         usuario_en_db = connectToMySQL(BD).query_db(query,datos)
-        print("USUARIO EN DB",usuario_en_db)
         if not usuario_en_db:
             return None
         return cls(usuario_en_db[0])

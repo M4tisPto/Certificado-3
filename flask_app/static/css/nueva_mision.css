@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 25px;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    
+
+h1, h2{
+    text-align: center;
+}
+section{
+    height: 50%;
+    width: 50%;
+    gap: 20px;
+    
+}
+
+form{
+    display: block;
+    gap: 50px;
+    
+}
+
+
+header a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    border: black 1px solid;
+    border-radius: 25px;
+}
+
+label{
+    display: inline-block;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+input[type="text"], input[type="date"]{
+    align-items: center;
+    padding: 2px;
+}
+
+textarea{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.error{
+    color: red;
+}
+
+input[type="submit"]{
+    background-color: #fffefe;
+    border: black 1px solid;
+    border-radius: 15px;
+    padding: 10px 25px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor:  pointer;
+}

@@ -8,7 +8,9 @@ from flask_app.models.voluntario import Voluntario
 @app.route("/registrar_voluntario", methods=["POST"])
 
 def registrar_voluntario():
-    data = {**request.form}
+    data = {**request.form,
+        "usuario_id" : session["usuario_id"]
+    }
 
     Voluntario.guardar(data)
     return redirect("/dashboard")

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/ver_viaje.css">
-    <title>Ver viaje</title>
+    <link rel="stylesheet" href="../static/css/ver_mision.css">
+    <title>Ver Mision</title>
 </head>
 <body>
     <header>
@@ -22,7 +22,6 @@
         <form action="/registrar_voluntario" method="post">
             <h2>Voluntarios</h2>
             <input type="hidden" name="mision_id" value="{{mision.id}}">
-            <input type="hidden" name="usuario_id" value="{{mision.usuario_id}}">
             <ul>
                 {% for voluntario in voluntarios %}
                 <li>{{ voluntario.nombre_usuario }}</li>
