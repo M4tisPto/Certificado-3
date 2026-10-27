@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <title>VoluntaMe</title>
 </head>
+
 <body>
     <header>
-        Bienvenid@ {{ usuario.nombre }}
+        <h1>Bienvenid@ {{ usuario.nombre }}</h1>
         <div>
             <a href="/logout">Cerrar Sesión</a>
             <a href="/nueva">Nueva Misión</a>
+
         </div>
     </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Lider</th>
+                    <th>Fecha</th>
+                    <th>Voluntarios Necesarios</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mision in misiones %}
+                <tr>
+                    <td>{{ mision.nombre }}</td>
+                    <td>{{ mision.nombre_usuario }}</td>
+                    <td>{{ mision.fecha }}</td>
+                    <td>{{ mision.voluntarios_necesarios }}</td>
+                    <td>
+                        <a href="/ver/{{ mision.id }}">Ver</a>
+                        {% if mision.usuario_id == usuario.id %}
+                        <a href="/editar/{{ mision.id }}">Editar</a>
+                        <a href="/borrar/{{mision.id}}">Borrar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
 </body>
+
 </html>

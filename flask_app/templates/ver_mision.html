@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/ver_viaje.css">
+    <title>Ver viaje</title>
+</head>
+<body>
+    <header>
+        <a href="/dashboard">Inicio</a>
+        <a href="/logout">Cerrar sesión</a>
+    </header>
+    <main>
+        <h2>{{ mision.nombre }}</h2>
+        <ul>
+            <li><b>Líder: </b>{{ mision.nombre_usuario }}</li>
+            <li><b>Fecha:</b>{{mision.fecha}}</li>
+            <li><b>Voluntarios Necesarios:</b>{{mision.voluntarios_necesarios}}</li>
+            <li><b>Descripción:</b>{{mision.descripcion}}</li>
+        </ul>
+        <form action="/registrar_voluntario" method="post">
+            <h2>Voluntarios</h2>
+            <input type="hidden" name="mision_id" value="{{mision.id}}">
+            <input type="hidden" name="usuario_id" value="{{mision.usuario_id}}">
+            <ul>
+                {% for voluntario in voluntarios %}
+                <li>{{ voluntario.nombre_usuario }}</li>
+                {% endfor %}
+            </ul>
+
+            <input type="submit" value="VoluntaMe">
+
+        </form>
+    </main>
+</body>
+</html>

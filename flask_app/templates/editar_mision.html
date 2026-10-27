@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/nuevo_viaje.css">
+    <title>Editar Mision</title>
+</head>
+<body>
+    <header>
+        {% if mision.usuario_id_de_tabla %}
+        <h1>Editar Mision</h1>
+        <div>
+            <a href="/dashboard">Inicio</a>
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+        {% else %}
+        <h1>Ni lo pienses.</h1>
+        <div>
+            <a href="/dashboard">Inicio</a>
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+        {% endif %}
+    </header>
+    {% if mision.usuario_id_de_tabla %}
+    <main>
+        {% for m in get_flashed_messages(category_filter=["mission"]) %}
+        <p class="error">{{ m }}</p>
+        {% endfor %}
+
+        <form action="/actualizar_mision" method="post">
+            <input type="hidden" name="id" value="{{mision.id}}">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" required><br>
+            <label for="fecha">Fecha</label>
+            <input type="date" name="fecha" required><br>
+            <label for="voluntarios_necesarios">Voluntarios Necesarios</label>
+            <input type="number" name="voluntarios_necesarios" id="" required><br>
+            <label for="descripcion">Descripción</label>
+            <textarea name="descripcion" required></textarea>
+            <input type="submit" value="Guardar">
+        </form>
+    </main>
+    {% else %}
+    <p>te cache.</p>
+    <img src="https://media1.tenor.com/m/OqbeAFDr-hUAAAAC/dont-make-fun-of-me.gif" alt="Te piche causa.">
+    {% endif %}
+</body>
+</html>

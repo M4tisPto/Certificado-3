@@ -51,6 +51,28 @@ CREATE TABLE IF NOT EXISTS `voluntame_esquema`.`misiones` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `voluntame_esquema`.`voluntarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `voluntame_esquema`.`voluntarios` (
+  `mision_id` INT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  PRIMARY KEY (`mision_id`, `usuario_id`),
+  INDEX `fk_misiones_has_usuarios_usuarios1_idx` (`usuario_id` ASC) VISIBLE,
+  INDEX `fk_misiones_has_usuarios_misiones1_idx` (`mision_id` ASC) VISIBLE,
+  CONSTRAINT `fk_misiones_has_usuarios_misiones1`
+    FOREIGN KEY (`mision_id`)
+    REFERENCES `voluntame_esquema`.`misiones` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_misiones_has_usuarios_usuarios1`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `voluntame_esquema`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
